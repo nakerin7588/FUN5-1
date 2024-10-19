@@ -1,0 +1,219 @@
+04:58:23 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-size  nucleo_uros.elf 
+   text	   data	    bss	    dec	    hex	filename
+  78672	    272	  45280	 124224	  1e540	nucleo_uros.elf
+Finished building: default.size.stdout
+ 
+04:58:28 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-size  nucleo_uros.elf 
+   text	   data	    bss	    dec	    hex	filename
+  78672	    272	  45280	 124224	  1e540	nucleo_uros.elf
+Finished building: default.size.stdout
+ 
+05:05:00 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "nucleo_uros.elf" @"objects.list"  -lmicroros -mcpu=cortex-m4 -T"/home/nakarin/uros_ws/firmware/nucleo_uros/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo_uros.map" -Wl,--gc-sections -static -L../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo_uros.elf
+ 
+arm-none-eabi-size  nucleo_uros.elf 
+arm-none-eabi-objdump -h -S nucleo_uros.elf  > "nucleo_uros.list"
+   text	   data	    bss	    dec	    hex	filename
+  78672	    272	  45368	 124312	  1e598	nucleo_uros.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo_uros.list
+ 
+05:05:27 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "nucleo_uros.elf" @"objects.list"  -lmicroros -mcpu=cortex-m4 -T"/home/nakarin/uros_ws/firmware/nucleo_uros/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo_uros.map" -Wl,--gc-sections -static -L../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo_uros.elf
+ 
+arm-none-eabi-size  nucleo_uros.elf 
+arm-none-eabi-objdump -h -S nucleo_uros.elf  > "nucleo_uros.list"
+   text	   data	    bss	    dec	    hex	filename
+  78672	    272	  45368	 124312	  1e598	nucleo_uros.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo_uros.list
+ 
+05:08:32 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartDefaultTask':
+../Core/Src/main.c:119:5: error: 'rc' undeclared (first use in this function)
+  119 |     rc = rclc_node_init_default(&node, "eiei_node", "", &support);
+      |     ^~
+../Core/Src/main.c:119:5: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:133:24: warning: 'return' with a value, in function returning void [-Wreturn-type]
+  133 |                 return -1;
+      |                        ^
+../Core/Src/main.c:83:6: note: declared here
+   83 | void StartDefaultTask(void *argument)
+      |      ^~~~~~~~~~~~~~~~
+make[1]: *** [Core/Src/subdir.mk:61: Core/Src/main.o] Error 1
+make: *** [makefile:62: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+05:08:47 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'StartDefaultTask':
+../Core/Src/main.c:119:5: error: 'rc' undeclared (first use in this function)
+  119 |     rc = rclc_node_init_default(&node, "eiei_node", "", &support);
+      |     ^~
+../Core/Src/main.c:119:5: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:121:24: warning: 'return' with a value, in function returning void [-Wreturn-type]
+  121 |                 return -1;
+      |                        ^
+../Core/Src/main.c:83:6: note: declared here
+   83 | void StartDefaultTask(void *argument)
+      |      ^~~~~~~~~~~~~~~~
+make[1]: *** [Core/Src/subdir.mk:61: Core/Src/main.o] Error 1
+make: *** [makefile:62: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+05:09:06 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "nucleo_uros.elf" @"objects.list"  -lmicroros -mcpu=cortex-m4 -T"/home/nakarin/uros_ws/firmware/nucleo_uros/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo_uros.map" -Wl,--gc-sections -static -L../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo_uros.elf
+ 
+arm-none-eabi-size  nucleo_uros.elf 
+arm-none-eabi-objdump -h -S nucleo_uros.elf  > "nucleo_uros.list"
+   text	   data	    bss	    dec	    hex	filename
+  78672	    272	  45368	 124312	  1e598	nucleo_uros.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo_uros.list
+ 
+05:14:35 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc -o "nucleo_uros.elf" @"objects.list"  -lmicroros -mcpu=cortex-m4 -T"/home/nakarin/uros_ws/firmware/nucleo_uros/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo_uros.map" -Wl,--gc-sections -static -L../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo_uros.elf
+ 
+arm-none-eabi-size  nucleo_uros.elf 
+arm-none-eabi-objdump -h -S nucleo_uros.elf  > "nucleo_uros.list"
+   text	   data	    bss	    dec	    hex	filename
+  78648	    272	  45368	 124288	  1e580	nucleo_uros.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo_uros.list
+ 
+05:19:20 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-gcc "../Core/Src/app_freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app_freertos.d" -MT"Core/Src/app_freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app_freertos.o"
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/app_freertos.c:144:13: error: two or more data types in declaration specifiers
+  144 | __weak void void StartDefaultTask(void *argument)
+      |             ^~~~
+make[1]: *** [Core/Src/subdir.mk:61: Core/Src/app_freertos.o] Error 1
+make[1]: *** Waiting for unfinished jobs....
+make: *** [makefile:62: all] Error 2
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+05:19:38 **** Incremental Build of configuration Debug for project nucleo_uros ****
+make -j8 all 
+docker pull microros/micro_ros_static_library_builder:humble && docker run --rm -v /home/nakarin/uros_ws/firmware/nucleo_uros:/project --env MICROROS_LIBRARY_FOLDER=micro_ros_stm32cubemx_utils/microros_static_library_ide microros/micro_ros_static_library_builder:humble
+humble: Pulling from microros/micro_ros_static_library_builder
+Digest: sha256:83ab4e8ce95b2a62feb5dd270ad4460218d2d026a455ea32a5873cf629aa1e99
+Status: Image is up to date for microros/micro_ros_static_library_builder:humble
+docker.io/microros/micro_ros_static_library_builder:humble
+dos2unix: converting file /project/micro_ros_stm32cubemx_utils/microros_static_library_ide/library_generation/library_generation.sh to Unix format...
+micro-ROS library found. Skipping...
+Delete micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/ for rebuild.
+ 
+arm-none-eabi-gcc "../Core/Src/app_freertos.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/app_freertos.d" -MT"Core/Src/app_freertos.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app_freertos.o"
+arm-none-eabi-gcc -o "nucleo_uros.elf" @"objects.list"  -lmicroros -mcpu=cortex-m4 -T"/home/nakarin/uros_ws/firmware/nucleo_uros/STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="nucleo_uros.map" -Wl,--gc-sections -static -L../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: nucleo_uros.elf
+ 
+arm-none-eabi-size  nucleo_uros.elf 
+arm-none-eabi-objdump -h -S nucleo_uros.elf  > "nucleo_uros.list"
+   text	   data	    bss	    dec	    hex	filename
+  78648	    272	  45368	 124288	  1e580	nucleo_uros.elf
+Finished building: default.size.stdout
+ 
+Finished building: nucleo_uros.list
+ 
