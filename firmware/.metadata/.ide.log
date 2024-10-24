@@ -5240,3 +5240,8 @@ java.lang.NullPointerException: Cannot invoke "javax.swing.JTextField.getText()"
 2024-10-24 22:01:34,246 [INFO] WebApp:186 - Connection restablished
 2024-10-24 22:07:20,474 [INFO] WebApp:189 - Connection lost
 2024-10-24 22:07:20,632 [INFO] WebApp:186 - Connection restablished
+2024-10-24 22:19:49,327 [INFO] WebAppUi:263 - Path where cad_preferences.json is located /home/nakarin/.stm32cubeide/
+2024-10-24 22:19:49,327 [INFO] WebAppUi:264 - Updating consent from JSON file
+2024-10-24 22:19:49,497 [INFO] WebApp:388 - JxBrowser engine has been closed 
+2024-10-24 22:19:49,497 [INFO] WebAppUi:453 - JxBrowser engine has been closed 
+2024-10-24 22:19:49,497 [INFO] WebAppUi:490 - Close the Jxbrowser engine manually
