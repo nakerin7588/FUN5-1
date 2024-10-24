@@ -20,12 +20,27 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "dma.h"
+#include "i2c.h"
+#include "iwdg.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include <rcl/rcl.h>
+#include <rcl/error_handling.h>
+#include <rclc/rclc.h>
+#include <rclc/executor.h>
+#include <uxr/client/transport.h>
+#include <rmw_microxrcedds_c/config.h>
+#include <rmw_microros/rmw_microros.h>
+#include <micro_ros_utilities/string_utilities.h>
 
+#include <sensor_msgs/msg/imu.h>
+
+#include <mpu6050.h>
+
+#include <math.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -35,30 +50,55 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define G2M_S2 9.81
+#define DEG2RAD M_PI / 100.0
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#define RCSOFTCHECK(fn) if (fn != RCL_RET_OK) {};
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
 
+/* MicroROS transport via DMA variable BEGIN */
+bool cubemx_transport_open(struct uxrCustomTransport * transport);
+bool cubemx_transport_close(struct uxrCustomTransport * transport);
+size_t cubemx_transport_write(struct uxrCustomTransport* transport, const uint8_t * buf, size_t len, uint8_t * err);
+size_t cubemx_transport_read(struct uxrCustomTransport* transport, uint8_t* buf, size_t len, int timeout, uint8_t* err);
+/* MicroROS transport via DMA variable END*/
+
+/* ROS VARIABLES BEGIN */
+rcl_init_options_t init_options;
+rclc_support_t support;
+rcl_allocator_t allocator;
+rcl_node_t node;
+rclc_executor_t executor;
+/* ROS VARIABLES END */
+
+/* IMU VARIABLES BEGIN */
+rcl_timer_t imu_timer;
+rcl_publisher_t imu_publisher;
+sensor_msgs__msg__Imu imu_msg;
+MPU6050_t MPU6050;
+/* IMU VARIABLES END */
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
-
+void StartDefaultTask(void *argument);
+void * microros_allocate(size_t size, void * state);
+void microros_deallocate(void * pointer, void * state);
+void * microros_reallocate(void * pointer, size_t size, void * state);
+void * microros_zero_allocate(size_t number_of_elements, size_t size_of_element, void * state);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 /* USER CODE END 0 */
 
 /**
@@ -92,8 +132,10 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_LPUART1_UART_Init();
+  MX_I2C1_Init();
+  MX_IWDG_Init();
   /* USER CODE BEGIN 2 */
-
+  while (MPU6050_Init(&hi2c1) == 1);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -134,8 +176,9 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_LSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = RCC_PLLM_DIV6;
@@ -164,7 +207,108 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+void timer_callback(rcl_timer_t * timer, int64_t last_call_time)
+{
+	if (timer != NULL) {
+		MPU6050_Read_All(&hi2c1, &MPU6050);
 
+		imu_msg.header.stamp.sec = rmw_uros_epoch_millis() / 1000;
+		imu_msg.header.stamp.nanosec = rmw_uros_epoch_nanos();
+
+		imu_msg.linear_acceleration.x = G2M_S2 * MPU6050.Ax;
+		imu_msg.linear_acceleration.y = G2M_S2 * MPU6050.Ay;
+		imu_msg.linear_acceleration.z = G2M_S2 * MPU6050.Az;
+
+		imu_msg.angular_velocity.x = DEG2RAD * MPU6050.Gx;
+		imu_msg.angular_velocity.y = DEG2RAD * MPU6050.Gy;
+		imu_msg.angular_velocity.z = DEG2RAD * MPU6050.Gz;
+
+		RCSOFTCHECK(rcl_publish(&imu_publisher, &imu_msg, NULL));
+
+		HAL_IWDG_Refresh(&hiwdg);
+	}
+}
+void StartDefaultTask(void *argument)
+{
+  /* USER CODE BEGIN StartDefaultTask */
+
+  // micro-ROS configuration
+
+  rmw_uros_set_custom_transport(
+	true,
+	(void *) &hlpuart1,
+	cubemx_transport_open,
+	cubemx_transport_close,
+	cubemx_transport_write,
+	cubemx_transport_read);
+
+  rcl_allocator_t freeRTOS_allocator = rcutils_get_zero_initialized_allocator();
+  freeRTOS_allocator.allocate = microros_allocate;
+  freeRTOS_allocator.deallocate = microros_deallocate;
+  freeRTOS_allocator.reallocate = microros_reallocate;
+  freeRTOS_allocator.zero_allocate =  microros_zero_allocate;
+
+  if (!rcutils_set_default_allocator(&freeRTOS_allocator)) {
+	  printf("Error on default allocators (line %d)\n", __LINE__);
+  }
+
+  // micro-ROS app
+  // Initialize micro-ROS allocator
+  allocator = rcl_get_default_allocator();
+
+  // Initialize and modify options (Set DOMAIN ID to 73)
+  init_options = rcl_get_zero_initialized_init_options();
+  RCSOFTCHECK(rcl_init_options_init(&init_options, allocator));
+  RCSOFTCHECK(rcl_init_options_set_domain_id(&init_options, 73));
+
+  // Initialize rclc support object with custom options
+  rclc_support_init_with_options(&support, 0, NULL, &init_options, &allocator);
+
+  // Create node object
+  const char * node_name = "imu_node";
+
+  // Init node with configured support object
+  rclc_node_init_default(&node, node_name, "", &support);
+
+  // Synchronize time with the agent
+  rmw_uros_sync_session(1000);
+
+  // Create timer
+  rclc_timer_init_default(
+	&imu_timer,
+	&support,
+	RCL_MS_TO_NS(10),
+	timer_callback
+  );
+
+  // Creates a best effort rcl publisher
+  rclc_publisher_init_best_effort(
+    &imu_publisher,
+	&node,
+	ROSIDL_GET_MSG_TYPE_SUPPORT(sensor_msgs, msg, Imu),
+	"imu"
+  );
+
+  // Create imu message
+  imu_msg.header.frame_id = micro_ros_string_utilities_init("imu_frame");
+
+  // Create executor
+  executor = rclc_executor_get_zero_initialized_executor();
+  rclc_executor_init(&executor, &support.context, 1, &allocator);
+
+  // Add executor
+  rclc_executor_add_timer(&executor, &imu_timer);
+
+  // Spin executor
+  rclc_executor_spin(&executor);
+
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(10);
+  }
+  /* USER CODE END StartDefaultTask */
+}
 /* USER CODE END 4 */
 
 /**
