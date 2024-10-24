@@ -1,36 +1,18 @@
-!SESSION 2024-10-16 01:58:37.352 -----------------------------------------------
+!SESSION 2024-10-24 17:40:18.869 -----------------------------------------------
 eclipse.buildId=Version 1.16.1
 java.version=17.0.11
 java.vendor=Eclipse Adoptium
 BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
 Command-line arguments:  -os linux -ws gtk -arch x86_64
 
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-10-16 01:58:49.495
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-10-24 17:40:33.620
 !MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
 
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-10-16 01:58:49.496
-!MESSAGE Log4j2 initialized with config file /home/nakarin/uros_ws/firmware/.metadata/.log4j2.xml
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-10-24 17:40:33.621
+!MESSAGE Log4j2 initialized with config file /home/nakarin/FUN5-1/firmware/.metadata/.log4j2.xml
 
-!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-16 01:58:53.260
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-24 17:40:35.938
 !MESSAGE Started RMI Server, listening on port 41337
 
-!ENTRY org.eclipse.cdt.core 1 0 2024-10-16 02:01:14.631
-!MESSAGE Indexed 'nucleo_uros' (21 sources, 81 headers) in 3.47 sec: 4,947 declarations; 21,263 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0076%)
-
-!ENTRY org.eclipse.cdt.core 1 0 2024-10-16 02:17:29.756
-!MESSAGE Indexed 'nucleo_uros' (38 sources, 112 headers) in 2.57 sec: 10,081 declarations; 63,609 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0027%)
-!SESSION 2024-10-16 04:00:37.210 -----------------------------------------------
-eclipse.buildId=Version 1.16.1
-java.version=17.0.11
-java.vendor=Eclipse Adoptium
-BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
-Command-line arguments:  -os linux -ws gtk -arch x86_64
-
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-10-16 04:00:43.081
-!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
-
-!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-10-16 04:00:43.082
-!MESSAGE Log4j2 initialized with config file /home/nakarin/uros_ws/firmware/.metadata/.log4j2.xml
-
-!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-16 04:00:48.588
-!MESSAGE Started RMI Server, listening on port 41337
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-24 17:42:32.164
+!MESSAGE Indexed 'uros_firmware' (21 sources, 81 headers) in 4.48 sec: 4,947 declarations; 21,263 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0076%)
