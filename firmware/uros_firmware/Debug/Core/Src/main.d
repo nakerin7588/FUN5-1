@@ -199,6 +199,11 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/imu__functions.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/rosidl_generator_c__visibility_control.h \
  ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/imu__type_support.h \
+ ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/srv/imu_calibration.h \
+ ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/srv/detail/imu_calibration__struct.h \
+ ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/srv/detail/imu_calibration__functions.h \
+ ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/msg/rosidl_generator_c__visibility_control.h \
+ ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/srv/detail/imu_calibration__type_support.h \
  ../MPU6050/Src/mpu6050.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
@@ -405,4 +410,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/imu__functions.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/rosidl_generator_c__visibility_control.h:
 ../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/sensor_msgs/msg/detail/imu__type_support.h:
+../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/srv/imu_calibration.h:
+../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/srv/detail/imu_calibration__struct.h:
+../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/srv/detail/imu_calibration__functions.h:
+../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/msg/rosidl_generator_c__visibility_control.h:
+../micro_ros_stm32cubemx_utils/microros_static_library_ide/libmicroros/include/imu_interfaces/srv/detail/imu_calibration__type_support.h:
 ../MPU6050/Src/mpu6050.h:
