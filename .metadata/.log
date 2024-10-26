@@ -1,0 +1,18 @@
+!SESSION 2024-10-26 22:26:25.405 -----------------------------------------------
+eclipse.buildId=Version 1.16.1
+java.version=17.0.11
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-10-26 22:27:04.266
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-10-26 22:27:04.267
+!MESSAGE Log4j2 initialized with config file /home/saifa/Desktop/FUN5-1/.metadata/.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-10-26 22:27:06.158
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-10-26 22:28:38.269
+!MESSAGE Indexed 'nucleo_uros' (46 sources, 306 headers) in 5.09 sec: 21,958 declarations; 106,636 references; 3 unresolved inclusions; 156 syntax errors; 172 unresolved names (0.13%)
