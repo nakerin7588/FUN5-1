@@ -1,0 +1,9 @@
+../Core/Src/main.c:131:5:main	2
+../Core/Src/main.c:192:6:SystemClock_Config	3
+../Core/Src/main.c:235:6:timer_callback	4
+../Core/Src/main.c:259:6:imu_calibration_callback	2
+../Core/Src/main.c:284:6:imu_status_callback	1
+../Core/Src/main.c:292:6:check_device_connection	3
+../Core/Src/main.c:303:6:StartDefaultTask	2
+../Core/Src/main.c:412:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:429:6:Error_Handler	1

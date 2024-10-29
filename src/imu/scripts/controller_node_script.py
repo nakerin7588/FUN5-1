@@ -83,19 +83,27 @@ class ControllerNode(Node):
         self.acc_lin = []    # x and y
         self.gyro_theta = [] # roll and pitch axis angle
         self.acc_theta = []  # roll and pitch axis angle
+        self.imu_sub_flag = False
         
         # Startup
         self.get_logger().info("Controller node has been started")
         
     def timer_callback(self):
         try:
-            self.imu_.compute_raw_theta(1/self.rate)
+            if self.imu_sub_flag:
+                self.imu_.compute_raw_theta(1/self.rate)
+            else:
+                self.imu_.A_roll = 0.00001
+                self.imu_.A_pitch = 0.00001
+                self.imu_.G_roll = 0.00001
+                self.imu_.G_pitch = 0.00001
             self.sensorfusion.compute([self.imu_.A_roll, self.imu_.A_pitch], [self.imu_.G_roll, self.imu_.G_pitch])
         except Exception as e:
             self.get_logger().error(f"timer calllback has {e}")
         self.get_logger().info(f"roll theta(sensor fusion): {self.sensorfusion.roll}")
         self.get_logger().info(f"pitch theta((sensor fusion)): {self.sensorfusion.pitch}")
         self.angletocmd()
+        self.imu_sub_flag = False
     
     def angletocmd(self):
         msg = Twist()
@@ -110,6 +118,7 @@ class ControllerNode(Node):
         self.imu_.A_acc_x = msg.linear_acceleration.x
         self.imu_.A_acc_y = msg.linear_acceleration.y        
         self.imu_.A_acc_z = msg.linear_acceleration.z
+        self.imu_sub_flag = True
     
 def main(args=None):
     rclpy.init(args=args)

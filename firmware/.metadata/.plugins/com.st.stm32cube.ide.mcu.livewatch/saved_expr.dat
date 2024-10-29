@@ -1,6 +1,3 @@
-button_
 is_imu_calib
-_button
-destroy_imu_service
+is_imu_connect
 executor_num
-imu_msg.linear_acceleration_covariance
