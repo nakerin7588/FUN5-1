@@ -30,6 +30,7 @@ ament_python_install_package(${PROJECT_NAME})
 install(PROGRAMS
   scripts/imu_calibration_node_script.py
   scripts/imu_bridge_node_script.py
+  scripts/controller_node_script.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
